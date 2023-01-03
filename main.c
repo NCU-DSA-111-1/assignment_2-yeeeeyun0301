@@ -5,17 +5,11 @@
 //完成的棋子：步、飛、香、角、銀、金、王、桂
 //他沒寫拿錯棋子(敵我不分)
 
-#include <stdio.h>
-#include <stdbool.h>
-#include <math.h>
-#include <stdlib.h>
+#include "chess_and_board_declare.h"
 #include <ev.h>
 
 //#define PRINT_BACK_WHI  printf("\033[47m"); //設置背景色為白色
-#define R(piece) "\033[47;31m"#piece"\033[0m"//紅色棋子，底色為白
-//#define B(piece) "\033[30m"#piece"\033[0m"//藍色棋子
-#define B(piece) "\033[47;34m"#piece"\033[0m"//藍色棋子，底色為白
-#define CROSS "\033[47;33m口\033[0m"
+
 
 //定義外部變量,棋盤坐標
 char* array[9][9];
@@ -23,25 +17,13 @@ int xi,yi;//要移動的棋子
 int xj,yj;//移動的目標位置
 char save;//儲存
 char load;//叫檔案
-bool isStandard = 1;//是否符合規則，初始值1，符合
-bool gameOverSign = 1;//遊戲是否結束，0結束
-bool restart = 0;
 
 
-//生成棋盤
-void chessboardBuilding();
-//打印棋盤
-void printChessboard();
-//判斷是紅棋還是藍棋,紅旗返回1,黑棋返回-1,否則返回0
-int redOrBlack(int x,int y);
-//紅棋移動
-void redMove();
-//藍棋移動
-void blackMove();
-//每種棋子的規則
-void rulesOfAllKindsOfChessPieces();
-//判斷遊戲結束
-void isGameOver();
+
+
+
+
+
 //儲存棋盤
 void savedata();
 //叫出舊檔
@@ -111,32 +93,6 @@ int main(int argc, char *argv[])
 		perror("rename");
 	return 0;
 }*/
-
-static void timeout_cbx (EV_P_ ev_timer *w, int revents){
-
-    if(turns==0){
-        printf("The time of player BLUE use: ");
-        printf("\033[43m %d second \033[m\n",(int)ev_now(loop)-now);
-        indep=(int)ev_now(loop)-now;
-    }else{
-        printf("The time of player BLUE use: ");printf("\033[43m %d second \033[m\n",(int)ev_now(loop)-now-indep);
-        indep=(int)ev_now(loop)-now;
-    }
-    ev_timer_stop (loop, &timeout_watcherx);
-    ev_break(loop, EVBREAK_ONE);
-    turns=1;
-
-}
-static void timeout_cby (EV_P_ ev_timer *w, int revents){
-
-    printf("The time of player RED use: ");
-    printf("\033[43m %d second \033[m\n",(int)ev_now(loop)-now-indep);
-    indep=(int)ev_now(loop)-now;
-    ev_timer_stop (loop, &timeout_watchery);
-    ev_break(loop, EVBREAK_ONE);
-    turns=-1;
-
-}
 
 
 //生成棋盤
