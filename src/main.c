@@ -1,11 +1,10 @@
 //  main.c
 
-//執行程式格式：./DSA_hw2.c new_game_file_name.txt
-
 //完成的棋子：步、飛、香、角、銀、金、王、桂
-//他沒寫拿錯棋子(敵我不分)
 
-#include "chess_and_board_declare.h"
+
+#include "chess_and_board.h"
+#include "stack.h"
 #include <ev.h>
 
 //#define PRINT_BACK_WHI  printf("\033[47m"); //設置背景色為白色
