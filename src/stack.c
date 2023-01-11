@@ -1,4 +1,9 @@
 #include "stack.h"
+
+//initialize memory
+Node_t *init_node();
+Stack_t *init_stack();
+
 Node_t *init_node(){
     Node_t* stk = (Node_t*)malloc(sizeof(Node_t)); 
     stk = NULL;

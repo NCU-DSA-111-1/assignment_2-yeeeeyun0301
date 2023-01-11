@@ -6,9 +6,9 @@
 #include <string.h>
 #include <stdbool.h>
 
-bool isStandard = 1; //是否符合規則，初始值1，符合
-bool gameOverSign = 1; //遊戲是否結束，0結束
-bool restart = 0;
+bool isStandard; //是否符合規則，初始值1，符合
+bool gameOverSign;  //遊戲是否結束，0結束
+bool restart ;
 
 char* array[9][9];
 int xi,yi;//要移動的棋子
@@ -16,8 +16,7 @@ int xj,yj;//移動的目標位置
 char save;//儲存
 char load;//叫檔案
 
-//儲存棋盤
-void savedata();
+
 
 //生成棋盤
 void chessboardBuilding()
@@ -112,7 +111,6 @@ void savedata()
 
 
 
-
 //叫出棋局
 /*int loadFile()
 {		
@@ -173,7 +171,6 @@ void blackMove()
     rulesOfAllKindsOfChessPieces();
     printChessboard();
 }
-
 
 
 //判斷遊戲結束
