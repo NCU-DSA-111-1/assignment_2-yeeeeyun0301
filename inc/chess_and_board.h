@@ -3,11 +3,6 @@
 
 
 
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
 
 //定義
 #define ROW  9
@@ -15,8 +10,7 @@
 #define R(piece) "\033[47;31m"#piece"\033[0m"//紅色棋子，底色為白
 #define B(piece) "\033[47;34m"#piece"\033[0m"//藍色棋子，底色為白
 #define CROSS "\033[47;33m口\033[0m" //間隔，底色為白
-
-
+//#define PRINT_BACK_WHI  printf("\033[47m"); //設置背景色為白色
 
 
 //-------------initialize memory---------//
@@ -28,10 +22,7 @@ int is_empty(Stack_t *const stk);
 void pop(Stack_t *const stk, void *des, long size);
 
 
-//規則
-bool isStandard = 1;//是否符合規則，初始值1，符合
-bool gameOverSign = 1;//遊戲是否結束，0結束
-bool restart = 0;
+
 
 //------------chess board---------------//
 void chessboardBuilding(); //生成棋盤
